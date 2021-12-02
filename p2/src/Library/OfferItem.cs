@@ -10,6 +10,13 @@ namespace Ucu.Poo.Defense
         public int Quantity { get; set; }
 
         public int Price { get; set; }
+        public string Nombrederesiduo
+        {
+            get 
+            {
+                return this.Residue.Name;
+            }
+        }
 
         public OfferItem(Residue residue, int quantity, int price)
         {

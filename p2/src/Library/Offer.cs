@@ -7,7 +7,7 @@ namespace Ucu.Poo.Defense
 {
     public class Offer
     {
-        public DateTime EndDate { get; set; }
+        private DateTime EndDate { get; set; }
 
         public IReadOnlyCollection<OfferItem> Items
         {
@@ -33,5 +33,14 @@ namespace Ucu.Poo.Defense
         {
             this.items.Remove(item);
         }
-    }
+        public string AsText()
+        {
+            string texto = $"Fecha:{EndDate}";
+            foreach (OfferItem oferta in items)
+            {
+                texto = texto + $"{oferta.Quantity} de {oferta.Nombrederesiduo} a {oferta.Price}";
+            }
+            return texto;
+        }
+    }   
 }

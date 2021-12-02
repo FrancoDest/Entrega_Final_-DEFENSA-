@@ -22,7 +22,7 @@ namespace Ucu.Poo.Defense
             get
             {
                 double result = 0;
-                foreach (OfferItem item in this.items)
+                foreach (IOfferItem item in this.items)
                 {
                     result = result + item.SubTotal;
                 }
@@ -41,6 +41,12 @@ namespace Ucu.Poo.Defense
         public OfferItem AddItem(Residue Residue, int quantity, int price)
         {
             OfferItem item = new OfferItem(Residue, quantity, price);
+            this.items.Add(item);
+            return item;
+        }
+        public OfferItem AddDiscount(string code, int amount)
+        {
+            OfferItem item = new PromoCode(code, amount);
             this.items.Add(item);
             return item;
         }
